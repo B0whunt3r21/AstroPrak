@@ -40,5 +40,5 @@ NGC2281 = DM.retrieve().copy()
 DM.clear()
 
 
-print(NGC2281)
+print(M81)
 
