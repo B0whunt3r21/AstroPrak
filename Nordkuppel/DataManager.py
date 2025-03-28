@@ -109,4 +109,33 @@ class DataManager():
         files.clear()
         tempArr.clear()
 
+    '''
+    @Param:
+        image.. the image where to apply the mask on
+        center.. pixels [x, y] of mask origin
+        radius.. mask size in pixels
+    '''
+    def circularSelection(self, image, centers, radii):
+        fluxes = []
+
+        for center, radius in zip(centers, radii):
+            y_min = center[1]-radius
+            y_max = center[1]+radius
+            x_min = center[0]-radius
+            x_max = center[0]+radius
+
+            # Extract the rectangular region
+            slice = image[y_min:y_max, x_min:x_max]
+
+            # Create a circular mask for this region
+            y, x = np.ogrid[y_min:y_max, x_min:x_max]
+            distance = (x - center[0])**2 + (y - center[1])**2
+            mask = distance <= radius**2
+
+            #Apply the mask
+            masked = np.where(mask, slice, np.nan)
+            fluxes.append(np.nansum(masked))
+        
+        return fluxes
+
 
