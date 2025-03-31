@@ -17,6 +17,7 @@ from DataManager import DataManager
 ROOT = os.path.dirname(os.path.realpath(__file__))
 M81 = ROOT+'/data/M81/'
 NGC2281 = ROOT+'/data/NGC2281/'
+GAIN = 1.56
 
 #Get Data
 '''
@@ -33,11 +34,10 @@ Object Structure of return from DataManager.retrieve():
 '''
 DM = DataManager()
 
-'''
+
 DM.fetchData(M81)
 M81 = DM.retrieve()
 DM.clear()
-'''
 
 DM.fetchData(NGC2281)
 NGC2281 = DM.retrieve().copy()
@@ -119,6 +119,8 @@ radii = [30
 plot_marked_stars(corrected_light_v, centers, radii)
 
 fluxes = DM.circularSelection(corrected_light_v, centers, radii)
-print(fluxes)
+
+fluxes_Corrected = np.divide(np.multiply(fluxes, GAIN), exposure_time_light_v)
+print(fluxes_Corrected)
 
 

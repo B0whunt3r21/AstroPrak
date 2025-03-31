@@ -26,7 +26,6 @@ class DataManager():
         self.Light_V.drop(labels=self.Light_V.index, axis=0, inplace=True)
         self.Darks.drop(labels=self.Darks.index, axis=0, inplace=True)
         self.Biases.drop(labels=self.Biases.index, axis=0, inplace=True)
-        self.Path = ""
 
     
     #Stacks the Images inside the Frames
