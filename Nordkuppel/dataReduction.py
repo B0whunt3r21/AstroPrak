@@ -103,6 +103,8 @@ def plot_marked_stars(image, centers, radii):
     ax.set_title("Selected Stars")
     plt.show()
 
+
+'''
 #Circle midpoints (x, y)
 centers = [(930, 1050)
            ,(1072, 1027)
@@ -122,5 +124,5 @@ fluxes = DM.circularSelection(corrected_light_v, centers, radii)
 
 fluxes_Corrected = np.divide(np.multiply(fluxes, GAIN), exposure_time_light_v)
 print(fluxes_Corrected)
-
+'''
 
