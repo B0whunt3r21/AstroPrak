@@ -172,8 +172,8 @@ plt.tight_layout()
 plt.show()
 
 
-figPolar.savefig('SpiralArms.svg')
-figVel.savefig('RotationCurve.svg')
-figDrift.savefig('LunarDriftScan.svg')
+figPolar.savefig(ROOT + 'img/SpiralArms.svg')
+figVel.savefig(ROOT + 'img/RotationCurve.svg')
+figDrift.savefig(ROOT + 'img/LunarDriftScan.svg')
 
 
